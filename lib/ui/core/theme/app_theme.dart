@@ -9,6 +9,9 @@ class AppTheme {
     : assert(selectedColor >= 0, 'color must be greater than 0'),
       assert(selectedColor <= listColor.length);
 
-  ThemeData getTheme() =>
-      ThemeData(useMaterial3: true, colorSchemeSeed: listColor[selectedColor]);
+  ThemeData getTheme() => ThemeData(
+    useMaterial3: true,
+    colorSchemeSeed: listColor[selectedColor],
+    appBarTheme: AppBarTheme(centerTitle: false),
+  );
 }
