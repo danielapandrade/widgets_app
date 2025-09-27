@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:widgets_app/domain/models/menu/menu_item.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,28 +14,40 @@ class HomeScreen extends StatelessWidget {
 }
 
 class _HomeView extends StatelessWidget {
-  const _HomeView({super.key});
+
 
   @override
   Widget build(BuildContext context) {
-    final list = appMenuItens;
+
 
     return ListView.builder(
       itemCount: appMenuItens.length,
       itemBuilder: (context, index) {
-        return OutlinedButton(
-          onPressed: () {},
-
-          style: OutlinedButton.styleFrom(
-            side: BorderSide(width: 0, color: Colors.white),
-            shape: ContinuousRectangleBorder(),
-          ),
-          child: ListTile(
-            title: Text(list[index].title),
-            leading: Icon(list[index].icon),
-          ),
-        );
+        final menuItem = appMenuItens[index];
+        return _CustomListTile(menuItem: menuItem);
       },
+    );
+  }
+}
+
+class _CustomListTile extends StatelessWidget{
+
+
+  const _CustomListTile({required this.menuItem});
+
+  final MenuItem menuItem;
+
+  @override
+  Widget build(BuildContext context) {
+
+    return ListTile(
+     title: Text(menuItem.title),
+     subtitle: Text(menuItem.subtitle),
+     leading: Icon(menuItem.icon, color: Theme.of(context).primaryColor,),
+     trailing: Icon(Icons.arrow_forward_ios_outlined, color:Theme.of(context).primaryColor,),
+     onTap: () {
+       context.push(menuItem.link);
+     },
     );
   }
 }
