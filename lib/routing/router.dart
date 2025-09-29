@@ -14,5 +14,10 @@ final router = GoRouter(
       builder: (context, state) => const ButtonsScreen(),
       
     ),
+    GoRoute(
+      path: '/cards',
+      builder: (context, state) => const CardsScreen(),
+      
+    ),
   ],
 );
