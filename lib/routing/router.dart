@@ -4,25 +4,23 @@ import 'package:widgets_app/ui/screens.dart';
 // GoRouter configuration
 final router = GoRouter(
   routes: [
-    GoRoute(
-      path: '/',
-      builder: (context, state) => const HomeScreen(),
-      
-    ),
+    GoRoute(path: '/', builder: (context, state) => const HomeScreen()),
     GoRoute(
       path: '/buttons',
       builder: (context, state) => const ButtonsScreen(),
-      
+    ),
+    GoRoute(path: '/cards', builder: (context, state) => const CardsScreen()),
+    GoRoute(
+      path: '/progress',
+      builder: (context, state) => const ProgressScreen(),
     ),
     GoRoute(
-      path: '/cards',
-      builder: (context, state) => const CardsScreen(),
-      
+      path: '/snackbars',
+      builder: (context, state) => const SnackBarScreen(),
     ),
      GoRoute(
-      path: '/progress',
-      builder: (context, state) =>  const ProgressScreen(),
-      
+      path: '/animated',
+      builder: (context, state) => const AnimatedScreen(),
     ),
   ],
 );
